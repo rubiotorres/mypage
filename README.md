@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rubio Viana — Portfolio
 
-## Available Scripts
+Personal portfolio built with Create React App (React 16) and deployed to GitHub Pages.
 
-In the project directory, you can run:
+## Quick start
 
-### `npm start`
+- Install: `npm install`
+- Dev server: `npm start`
+- Production build: `npm run build`
+- Deploy to GitHub Pages: `npm run deploy`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project structure
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- `src/App.js`: App shell (language state, section wiring, PixelAvatar scroll logic)
+- `src/content/content.js`: UI copy + section content (PT/EN) and education details
+- `src/profile.js`: Profile data (experience, education, skills, contacts)
+- `src/components/`: Reusable UI components
+- `src/components/sections/`: Page sections (Hero, Highlights, About, Skills, etc.)
+- `src/hooks/useScrollStage.js`: Scroll progress + active section tracking
+- `src/utils/`: Small utilities and formatters
+- `src/PixelAvatar.js`: Pixel avatar sprite + dock behavior
+- `public/`: Static assets (`favicon.svg`, `index.html`, `manifest.json`)
 
-### `npm test`
+## Editing content
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Profile data (experience/education/skills/contacts):** `src/profile.js`
+- **UI copy and section text (PT/EN):** `src/content/content.js`
+  - `COPY`: general UI strings
+  - `HIGHLIGHTS_BY_LANG`: “Highlights” cards
+  - `ABOUT_STORY_BY_LANG`: single “About” story (PT/EN)
+  - `SKILL_DETAILS`: skill descriptions (PT/EN)
 
-### `npm run build`
+## Language switching (PT/EN)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The UI runs with a simple language state (`pt`/`en`) in `src/App.js`.
+Texts live in `src/content/content.js` and are selected by `lang`.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Accessibility
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Skip link points to the main content (`#content`)
+- Interactive areas use semantic buttons/links
+- Pixel avatar is keyboard-focusable when interactive
 
-### `npm run eject`
+## Scripts
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `npm start`: Run locally (hot reload)
+- `npm test`: Run unit tests (Jest + Testing Library)
+- `npm run build`: Create production build
+- `npm run deploy`: Deploy `build/` to GitHub Pages via `gh-pages`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Notes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- This repo intentionally keeps Portuguese and English copy for the UI. The source code (identifiers/modules) is kept in English.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
